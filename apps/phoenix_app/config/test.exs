@@ -1,3 +1,4 @@
+
 use Mix.Config
 
 # We don't run a server during test. If one is required,
@@ -12,5 +13,5 @@ config :logger, level: :warn
 config :phoenix_app, authentication: [
   username: "user",
   password: "password",
-  realm:    "Test Realm"
+  realm:    "Development Realm"
 ]

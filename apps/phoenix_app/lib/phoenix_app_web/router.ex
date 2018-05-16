@@ -2,25 +2,25 @@ defmodule PhoenixAppWeb.Router do
   use PhoenixAppWeb, :router
 
   pipeline :browser do
-    plug :accepts, ["html"]
-    plug :fetch_session
-    plug :fetch_flash
-    plug :protect_from_forgery
-    plug :put_secure_browser_headers
+    plug(:accepts, ["html"])
+    plug(:fetch_session)
+    plug(:fetch_flash)
+    plug(:protect_from_forgery)
+    plug(:put_secure_browser_headers)
   end
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug(:accepts, ["json"])
   end
 
   pipeline :authentication do
-    plug BasicAuth, use_config: {:phoenix_app, :authentication}
+    plug(BasicAuth, use_config: {:phoenix_app, :authentication})
   end
 
   scope "/", PhoenixAppWeb do
-    pipe_through [:browser, :authentication]
+    pipe_through([:browser, :authentication])
 
-    get "/", PageController, :index
+    get("/", PageController, :index)
   end
 
   # Other scopes may use custom stacks.
