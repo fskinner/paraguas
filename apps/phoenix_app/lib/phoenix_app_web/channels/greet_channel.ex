@@ -1,4 +1,3 @@
-
 defmodule PhoenixApp.GreetChannel do
   use Phoenix.Channel
 
@@ -12,7 +11,7 @@ defmodule PhoenixApp.GreetChannel do
   end
 
   def handle_in("greet", %{"name" => name}, socket) do
-    broadcast! socket, "greet", %{msg: Greeter.hello(name)}
+    broadcast!(socket, "greet", %{msg: Greeter.hello(name)})
     {:noreply, socket}
   end
 end
